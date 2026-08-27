@@ -1,277 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>পড়াশোনা.online</title>
-    <!-- Font Awesome for Icons -->
+    <title>পড়াশোনা.online - পারতে পারার আনন্দ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for WhatsApp Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --champagne-gold: #C89B3C;
-            --metallic-bronze: #8B5E1A;
-            --dark-brown: #35271A;
-            --soft-ivory: #F8F4EC;
-            --cream-white: #FFFDF8;
-            --warm-neutral: #E6E2D8;
-            --text-dark: #2C241E;
+            /* ব্যাকগ্রাউন্ড কালার আরও লাইট করা হয়েছে */
+            --light-mint: #f2fbf9;      
+            --medium-mint: #6ccd9c;     
+            --deep-teal: #3da990;       
+            --bright-green: #3caf2a;    
+            --lime-green: #7ebd2e;      
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Optima', 'Candara', 'Segoe UI', sans-serif;
-            background-color: var(--warm-neutral);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: var(--text-dark);
-        }
-
-        /* Mobile Container */
-        .phone-container {
-            width: 100%;
-            max-width: 375px;
-            height: 812px;
-            background-color: var(--soft-ivory);
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(53, 39, 26, 0.25);
-            position: relative;
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--light-mint);
+            color: var(--deep-teal);
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
-            border: 10px solid var(--dark-brown);
+            min-height: 100vh;
+            align-items: center;
         }
 
-        /* Header Section */
-        .profile-header {
+        /* Header Styling */
+        header {
             width: 100%;
-            height: 40%;
-            background-color: #ffffff;
-            /* Reference to your specific filename */
-            background-image: url('logo.jpeg'); 
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            flex-shrink: 0;
-            border-bottom: 3px solid var(--champagne-gold);
-        }
-
-        /* Name Tag Overlay */
-        .info-box {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(53, 39, 26, 0.9), transparent);
-            color: white;
-            padding: 40px 20px 15px 20px;
-            z-index: 2;
-        }
-
-        .info-box h1 {
-            margin: 0;
-            font-size: 22px;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            color: var(--cream-white);
-        }
-
-        .info-box p {
-            margin: 5px 0 0 0;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 400;
-            color: var(--champagne-gold);
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px 0;
-            background-color: var(--soft-ivory);
-        }
-
-        .btn-circle {
-            width: 45px;
-            height: 45px;
-            background-color: var(--cream-white);
-            color: var(--metallic-bronze);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--champagne-gold);
-            box-shadow: 0 4px 10px rgba(139, 94, 26, 0.1);
-        }
-
-        .btn-circle:hover {
-            background-color: var(--metallic-bronze);
-            color: var(--cream-white);
-            transform: translateY(-3px);
-        }
-
-        /* Scrollable Content Area */
-        .scroll-area {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 5px 20px 80px 20px;
-            scrollbar-width: none;
-        }
-
-        .scroll-area::-webkit-scrollbar {
-            display: none;
-        }
-
-        .section-title {
-            color: var(--metallic-bronze);
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            margin: 20px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--warm-neutral);
-            padding-bottom: 5px;
-        }
-
-        /* Card Styling */
-        .podcast-card {
-            background-color: var(--cream-white);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-dark);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(200, 155, 60, 0.15);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .podcast-card:hover {
-            background-color: #fff;
-            transform: scale(1.01);
-            border-color: var(--champagne-gold);
-        }
-
-        .play-icon {
-            font-size: 20px;
-            color: var(--metallic-bronze);
-            margin-right: 15px;
-            background: var(--soft-ivory);
-            width: 42px;
-            height: 42px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
-
-        .link-text {
-            flex-grow: 1;
-        }
-
-        .link-text .title {
-            font-weight: 600;
-            font-size: 14px;
-            display: block;
-            margin-bottom: 2px;
-            color: var(--dark-brown);
-        }
-
-        .link-text .duration {
-            font-size: 11px;
-            color: #8B7E74;
-        }
-
-        /* Footer */
-        .footer-logo {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: var(--dark-brown);
+            padding: 25px 20px 5px 20px; /* নিচের প্যাডিং কমানো হয়েছে */
             text-align: center;
-            padding: 15px 0;
-            font-size: 10px;
-            color: var(--warm-neutral);
-            letter-spacing: 1px;
+        }
+
+        .brand-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 2px;
+        }
+
+        .brand-subtext {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--deep-teal);
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        main {
+            width: 100%;
+            max-width: 650px; /* ইমেজের উইডথ কমানো হয়েছে */
+            padding: 10px 20px 20px 20px; /* টপ প্যাডিং কমানো হয়েছে */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .infographic-container {
+            width: 100%;
+            background-color: #ffffff; /* ইমেজটি ফুটে ওঠার জন্য সাদা ব্যাকগ্রাউন্ড */
+            padding: 8px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(61, 169, 144, 0.1);
+            margin-bottom: 25px;
+            border: 1px solid rgba(108, 205, 156, 0.2);
+        }
+
+        .infographic-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Button Styling */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bright-green);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(60, 175, 42, 0.25);
+            margin-bottom: 40px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: var(--deep-teal);
+            box-shadow: 0 10px 20px rgba(61, 169, 144, 0.3);
+        }
+
+        .cta-button i {
+            font-size: 1.4rem;
+            margin-right: 10px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 3px;
+            background-color: var(--lime-green);
+            margin: 10px auto;
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .brand-name {
+                font-size: 1.7rem;
+            }
+            main {
+                max-width: 100%;
+                padding: 5px 15px;
+            }
+            .cta-button {
+                width: 100%;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="phone-container">
-        <!-- Header -->
-        <div class="profile-header">
-            <div class="info-box">
+    <header>
+        <div class="brand-name">পড়াশোনা.online</div>
+        <div class="brand-subtext">শিব প্রসাদ মুখার্জি</div>
+        <div class="divider"></div>
+    </header>
 
-            </div>
+    <main>
+        <!-- Infographic Section -->
+        <div class="infographic-container">
+            <!-- এখানে আপনার ছবির ফাইল নাম দিন -->
+            <img src="parte-parar-anondo.png" alt="পারতে পারার আনন্দ">
         </div>
 
-        <!-- Social Quick Links -->
-        <div class="action-buttons">
+        <!-- WhatsApp Button -->
+        <a href="YOUR_WHATSAPP_LINK_HERE" class="cta-button">
+            <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ চ্যানেলে যুক্ত হন
+        </a>
+    </main>
 
-
-
-            <a href="https://parashonaonline.blogspot.com/" class="btn-circle"><i class="fas fa-globe"></i></a>
-            <a href="https://whatsapp.com/channel/0029VbCyOOzJuyA4SN7Dv82U" class="btn-circle"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <!-- Content Area -->
-        <div class="scroll-area">
-            
-            <div class="section-title">
-                <i class="fas fa-microphone"></i> Latest Podcasts
-            </div>
-
-            <a href="#" class="podcast-card" target="_blank">
-                <div class="play-icon"><i class="fas fa-play"></i></div>
-                <div class="link-text">
-                    <span class="title">The Journey Begins</span>
-                    <span class="duration">Duration • 15:45</span>
-                </div>
-                <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--champagne-gold);"></i>
-            </a>
-
-            <a href="#" class="podcast-card" target="_blank">
-                <div class="play-icon"><i class="fas fa-play"></i></div>
-                <div class="link-text">
-                    <span class="title">Episode 02: Digital Mastery</span>
-                    <span class="duration">Duration • 22:10</span>
-                </div>
-                <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--champagne-gold);"></i>
-            </a>
-
-            <div class="section-title">
-                <i class="fas fa-crown"></i> Resources
-            </div>
-
-            <a href="https://spm.graphy.com/products/পড়শনPlus-6a2793a302d4561f51fb0c39" class="podcast-card">
-                <div class="play-icon" style="color: var(--champagne-gold);">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="link-text">
-                    <span class="title">পড়াশোনাPlus+</span>
-                    <span class="duration">Premium Lessons, Guides & Resources</span>
-                </div>
-            </a>
-
-        </div>
-
-        <div class="footer-logo">
-            <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> পড়াশোনা.online</p>
-        </div>
-    </div>
+    <footer style="padding-bottom: 20px; font-size: 0.85rem; opacity: 0.6; color: var(--deep-teal);">
+        &copy; ২০২৪ পড়াশোনা.online
+    </footer>
 
 </body>
 </html>
